@@ -234,6 +234,3 @@ Designed with mobile-first approach for African market needs
 Made with ❤️ by Murel ICT Team ~ Clodate Mnisi
 
 Transforming insurance, one secure transaction at a time.
-
-Secure One-Time ID Vault app for encrypted personal data sharing with insurers.
-32bb6cb00ad540a03d46c89c47e9228328126f67
