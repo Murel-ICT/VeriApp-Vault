@@ -6,7 +6,7 @@
     <title>VeriApp Vault - Secure Insurance Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -16,35 +16,56 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
+        .gradient-bg-alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-bg-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
         .card-shadow {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .luxury-shadow {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
         .pulse-animation {
-            animation: pulse 2s infinite;
+            animation: luxuryPulse 3s infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        @keyframes luxuryPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
         }
         
         .slide-in {
-            animation: slideIn 0.3s ease-out;
+            animation: slideIn 0.6s ease-out;
         }
         
         @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
         
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .modal-overlay {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
         }
         
         .modal-content {
-            animation: modalSlideIn 0.3s ease-out;
+            animation: modalSlideIn 0.4s ease-out;
         }
         
         @keyframes modalSlideIn {
@@ -58,8 +79,8 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
         }
         
         .btn-secondary {
@@ -68,12 +89,23 @@
         }
         
         .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #8b4513;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(252, 182, 159, 0.4);
         }
         
         .page-transition {
-            animation: pageSlideIn 0.4s ease-out;
+            animation: pageSlideIn 0.5s ease-out;
         }
         
         @keyframes pageSlideIn {
@@ -86,7 +118,7 @@
         }
         
         .back-button:hover {
-            transform: translateX(-3px);
+            transform: translateX(-5px);
         }
         
         .hidden {
@@ -94,13 +126,61 @@
         }
         
         .interactive-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             cursor: pointer;
         }
         
         .interactive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .onboarding-slide {
+            transition: all 0.5s ease;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .pin-dot-active {
+            background: white !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
+        }
+        
+        .verification-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .luxury-input {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .luxury-input:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
         }
     </style>
 </head>
@@ -108,12 +188,238 @@
     <!-- Mobile App Container -->
     <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative overflow-hidden">
         
+        <!-- App Introduction/Onboarding View -->
+        <div id="onboardingView" class="view-container">
+            <div class="gradient-bg min-h-screen flex flex-col relative overflow-hidden">
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full floating-animation"></div>
+                    <div class="absolute top-32 right-8 w-12 h-12 bg-white rounded-full floating-animation" style="animation-delay: -2s;"></div>
+                    <div class="absolute bottom-40 left-6 w-16 h-16 bg-white rounded-full floating-animation" style="animation-delay: -4s;"></div>
+                    <div class="absolute bottom-20 right-12 w-8 h-8 bg-white rounded-full floating-animation" style="animation-delay: -1s;"></div>
+                </div>
+                
+                <!-- Skip Button -->
+                <div class="absolute top-12 right-6 z-10">
+                    <button onclick="skipOnboarding()" class="text-white text-sm opacity-70 hover:opacity-100 transition-all px-4 py-2 rounded-full glass-effect">Skip</button>
+                </div>
+                
+                <!-- Onboarding Slides -->
+                <div class="flex-1 flex items-center justify-center p-6">
+                    <div class="text-center">
+                        <!-- Slide 1: Welcome -->
+                        <div id="slide1" class="onboarding-slide fade-in">
+                            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 pulse-animation glow-effect">
+                                <span class="text-6xl">🔐</span>
+                            </div>
+                            <h1 class="text-4xl font-bold text-white mb-4">Welcome to<br><span class="text-yellow-300">VeriApp Vault</span></h1>
+                            <p class="text-white opacity-90 text-lg leading-relaxed px-4">Your personal insurance data vault that puts you in complete control</p>
+                        </div>
+                        
+                        <!-- Slide 2: Security -->
+                        <div id="slide2" class="onboarding-slide hidden">
+                            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 pulse-animation glow-effect">
+                                <span class="text-6xl">🛡️</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Bank-Level Security</h2>
+                            <p class="text-white opacity-90 text-lg leading-relaxed px-4">Military-grade encryption protects your personal data. Only you control who sees what.</p>
+                        </div>
+                        
+                        <!-- Slide 3: RFQ -->
+                        <div id="slide3" class="onboarding-slide hidden">
+                            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 pulse-animation glow-effect">
+                                <span class="text-6xl">💰</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Get Real Quotes</h2>
+                            <p class="text-white opacity-90 text-lg leading-relaxed px-4">Send one request to multiple insurers. Receive actual quotes, not estimates.</p>
+                        </div>
+                        
+                        <!-- Slide 4: Control -->
+                        <div id="slide4" class="onboarding-slide hidden">
+                            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 pulse-animation glow-effect">
+                                <span class="text-6xl">⚡</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Instant Access</h2>
+                            <p class="text-white opacity-90 text-lg leading-relaxed px-4">Generate secure codes for agents. Share data instantly, revoke access anytime.</p>
+                        </div>
+                        
+                        <!-- Slide 5: Ready -->
+                        <div id="slide5" class="onboarding-slide hidden">
+                            <div class="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 pulse-animation glow-effect">
+                                <span class="text-6xl">🚀</span>
+                            </div>
+                            <h2 class="text-3xl font-bold text-white mb-4">Ready to Start?</h2>
+                            <p class="text-white opacity-90 text-lg leading-relaxed px-4">Join thousands who've taken control of their insurance journey</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="flex justify-center space-x-3 mb-8">
+                    <div class="w-3 h-3 bg-white rounded-full opacity-100 transition-all" id="dot1"></div>
+                    <div class="w-3 h-3 bg-white rounded-full opacity-30 transition-all" id="dot2"></div>
+                    <div class="w-3 h-3 bg-white rounded-full opacity-30 transition-all" id="dot3"></div>
+                    <div class="w-3 h-3 bg-white rounded-full opacity-30 transition-all" id="dot4"></div>
+                    <div class="w-3 h-3 bg-white rounded-full opacity-30 transition-all" id="dot5"></div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="p-6 space-y-4">
+                    <button id="nextBtn" onclick="nextSlide()" class="w-full bg-white text-blue-600 font-bold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow">
+                        Next
+                    </button>
+                    <button id="getStartedBtn" onclick="completeOnboarding()" class="w-full bg-white text-blue-600 font-bold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow hidden">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Welcome Back View (Returning Users) -->
+        <div id="welcomeBackView" class="view-container hidden">
+            <div class="gradient-bg min-h-screen flex flex-col">
+                <!-- Header -->
+                <div class="text-center pt-20 pb-12">
+                    <div class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6 pulse-animation glow-effect">
+                        <span class="text-5xl">👋</span>
+                    </div>
+                    <h1 class="text-3xl font-bold text-white mb-3">Welcome Back!</h1>
+                    <p class="text-white opacity-90 text-lg" id="welcomeBackName">John Doe</p>
+                    <p class="text-white opacity-75 text-sm mt-2">We remember you from your last visit</p>
+                </div>
+
+                <!-- Quick Stats Card -->
+                <div class="mx-6 mb-8">
+                    <div class="verification-card rounded-2xl p-6">
+                        <div class="grid grid-cols-3 gap-4 text-center text-white">
+                            <div>
+                                <div class="text-2xl font-bold" id="userActiveConsents">5</div>
+                                <div class="text-xs opacity-90">Active Consents</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold" id="userTotalRFQs">12</div>
+                                <div class="text-xs opacity-90">Total RFQs</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold" id="userSavings">R2.4K</div>
+                                <div class="text-xs opacity-90">Saved</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Verification Options -->
+                <div class="flex-1 bg-white rounded-t-3xl p-6">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Verify Your Identity</h2>
+                        <p class="text-gray-600">Choose your preferred verification method</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Biometric Login -->
+                        <button onclick="verifyBiometric()" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow flex items-center justify-center space-x-3">
+                            <span class="text-2xl">👆</span>
+                            <div class="text-left">
+                                <div class="font-bold">Biometric Login</div>
+                                <div class="text-sm opacity-90">Fingerprint or Face ID</div>
+                            </div>
+                        </button>
+
+                        <!-- PIN Verification -->
+                        <button onclick="showPINVerification()" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow flex items-center justify-center space-x-3">
+                            <span class="text-2xl">🔢</span>
+                            <div class="text-left">
+                                <div class="font-bold">PIN Verification</div>
+                                <div class="text-sm opacity-90">Enter your 6-digit PIN</div>
+                            </div>
+                        </button>
+
+                        <!-- SMS Verification -->
+                        <button onclick="sendSMSVerification()" class="w-full bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow flex items-center justify-center space-x-3">
+                            <span class="text-2xl">📱</span>
+                            <div class="text-left">
+                                <div class="font-bold">SMS Verification</div>
+                                <div class="text-sm opacity-90" id="maskedPhone">+27 82 ***-**67</div>
+                            </div>
+                        </button>
+
+                        <!-- Email Verification -->
+                        <button onclick="sendEmailVerification()" class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold py-4 px-6 rounded-2xl transition-all transform hover:scale-105 luxury-shadow flex items-center justify-center space-x-3">
+                            <span class="text-2xl">📧</span>
+                            <div class="text-left">
+                                <div class="font-bold">Email Verification</div>
+                                <div class="text-sm opacity-90" id="maskedEmail">j***@email.com</div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Alternative Options -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <div class="text-center space-y-3">
+                            <button onclick="showPasswordLogin()" class="text-blue-600 hover:text-blue-700 font-medium text-sm">Use Password Instead</button>
+                            <div class="text-gray-400 text-sm">or</div>
+                            <button onclick="showNewUserFlow()" class="text-gray-600 hover:text-gray-700 font-medium text-sm">Not your account? Sign up as new user</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PIN Verification Modal -->
+        <div id="pinVerificationView" class="view-container hidden">
+            <div class="gradient-bg min-h-screen flex flex-col">
+                <div class="flex items-center justify-between p-6">
+                    <button onclick="showWelcomeBack()" class="back-button text-white hover:text-blue-200">
+                        <span class="text-2xl">←</span>
+                    </button>
+                    <h1 class="text-xl font-bold text-white">Enter PIN</h1>
+                    <div class="w-8"></div>
+                </div>
+                
+                <div class="flex-1 flex items-center justify-center p-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-8 glow-effect">
+                            <span class="text-3xl">🔢</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-4">Enter Your PIN</h2>
+                        <p class="text-white opacity-90 mb-8">Enter your 6-digit security PIN</p>
+                        
+                        <!-- PIN Input Display -->
+                        <div class="flex justify-center space-x-4 mb-8">
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin1"></div>
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin2"></div>
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin3"></div>
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin4"></div>
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin5"></div>
+                            <div class="w-4 h-4 bg-white rounded-full opacity-30 transition-all" id="pin6"></div>
+                        </div>
+                        
+                        <!-- PIN Keypad -->
+                        <div class="grid grid-cols-3 gap-4 max-w-xs mx-auto">
+                            <button onclick="addPINDigit('1')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">1</button>
+                            <button onclick="addPINDigit('2')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">2</button>
+                            <button onclick="addPINDigit('3')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">3</button>
+                            <button onclick="addPINDigit('4')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">4</button>
+                            <button onclick="addPINDigit('5')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">5</button>
+                            <button onclick="addPINDigit('6')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">6</button>
+                            <button onclick="addPINDigit('7')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">7</button>
+                            <button onclick="addPINDigit('8')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">8</button>
+                            <button onclick="addPINDigit('9')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">9</button>
+                            <div></div>
+                            <button onclick="addPINDigit('0')" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">0</button>
+                            <button onclick="clearPIN()" class="w-16 h-16 verification-card rounded-full text-white text-xl font-bold hover:bg-opacity-30 transition-all">⌫</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Login/Register View -->
-        <div id="authView" class="view-container">
+        <div id="authView" class="view-container hidden">
             <div class="gradient-bg min-h-screen flex flex-col">
                 <!-- Header -->
                 <div class="text-center pt-16 pb-8">
-                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 glow-effect">
                         <span class="text-4xl">🔐</span>
                     </div>
                     <h1 class="text-3xl font-bold text-white mb-2">VeriApp Vault</h1>
@@ -132,12 +438,12 @@
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                <input type="email" id="loginEmail" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your email">
+                                <input type="email" id="loginEmail" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your email">
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                                <input type="password" id="loginPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your password">
+                                <input type="password" id="loginPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your password">
                             </div>
                             
                             <div class="flex items-center justify-between">
@@ -171,27 +477,27 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                    <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John">
+                                    <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="John">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                    <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Doe">
+                                    <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Doe">
                                 </div>
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">ID Number</label>
-                                <input type="text" id="idNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="9001015009088">
+                                <input type="text" id="idNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="9001015009088">
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                <input type="email" id="registerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john.doe@email.com">
+                                <input type="email" id="registerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="john.doe@email.com">
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                <input type="tel" id="phoneNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="+27 82 123 4567">
+                                <input type="tel" id="phoneNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="+27 82 123 4567">
                             </div>
 
                             <button onclick="showRegisterStep2()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all btn-primary">
@@ -211,33 +517,33 @@
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Street Address</label>
-                                <input type="text" id="streetAddress" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="123 Main Street">
+                                <input type="text" id="streetAddress" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="123 Main Street">
                             </div>
                             
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
-                                    <input type="text" id="city" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Cape Town">
+                                    <input type="text" id="city" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Cape Town">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Postal Code</label>
-                                    <input type="text" id="postalCode" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="8001">
+                                    <input type="text" id="postalCode" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="8001">
                                 </div>
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-                                <input type="text" id="companyName" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tech Solutions Ltd">
+                                <input type="text" id="companyName" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Tech Solutions Ltd">
                             </div>
                             
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Job Title</label>
-                                    <input type="text" id="jobTitle" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Software Developer">
+                                    <input type="text" id="jobTitle" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Software Developer">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Salary</label>
-                                    <input type="number" id="monthlySalary" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="45000">
+                                    <input type="number" id="monthlySalary" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="45000">
                                 </div>
                             </div>
 
@@ -259,7 +565,7 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Make</label>
-                                    <select id="vehicleMake" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                    <select id="vehicleMake" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                                         <option value="">Select Make</option>
                                         <option value="Toyota">Toyota</option>
                                         <option value="BMW">BMW</option>
@@ -271,34 +577,34 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Model</label>
-                                    <input type="text" id="vehicleModel" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Corolla">
+                                    <input type="text" id="vehicleModel" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Corolla">
                                 </div>
                             </div>
                             
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Vehicle Year</label>
-                                    <input type="number" id="vehicleYear" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="2020" min="1990" max="2024">
+                                    <input type="number" id="vehicleYear" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="2020" min="1990" max="2024">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">License Plate</label>
-                                    <input type="text" id="licensePlate" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="CA 123-456">
+                                    <input type="text" id="licensePlate" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="CA 123-456">
                                 </div>
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Driver's License Number</label>
-                                <input type="text" id="licenseNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="1234567890123">
+                                <input type="text" id="licenseNumber" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="1234567890123">
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Create Password</label>
-                                <input type="password" id="registerPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Create a strong password">
+                                <input type="password" id="registerPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Create a strong password">
                             </div>
                             
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
-                                <input type="password" id="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Confirm your password">
+                                <input type="password" id="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-xl luxury-input focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Confirm your password">
                             </div>
 
                             <div class="flex items-start space-x-3">
@@ -328,7 +634,7 @@
             <div class="gradient-bg text-white p-6 pb-8">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center glow-effect">
                             <span class="text-xl">🔐</span>
                         </div>
                         <div>
@@ -336,7 +642,7 @@
                             <p class="text-sm opacity-90">Secure Insurance Platform</p>
                         </div>
                     </div>
-                    <button onclick="showSettings()" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
+                    <button onclick="showView('settings')" class="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all">
                         <span class="text-sm">⚙️</span>
                     </button>
                 </div>
@@ -362,31 +668,31 @@
             <div class="p-6 space-y-6 pb-24">
                 
                 <!-- RFQ Section -->
-                <div class="card-shadow bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100 interactive-card">
+                <div class="luxury-shadow bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100 interactive-card">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-800">Get Real Quotes</h3>
                             <p class="text-sm text-gray-600">Send RFQ to all insurers instantly</p>
                         </div>
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center glow-effect">
                             <span class="text-xl">💰</span>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-2 gap-3 mb-4">
-                        <button onclick="showRFQDetails('car')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105">
+                        <button onclick="showRFQDetails('car')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105 luxury-shadow">
                             <div class="text-2xl mb-1">🚗</div>
                             <div class="text-sm font-medium">Car Insurance</div>
                         </button>
-                        <button onclick="showRFQDetails('home')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105">
+                        <button onclick="showRFQDetails('home')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105 luxury-shadow">
                             <div class="text-2xl mb-1">🏠</div>
                             <div class="text-sm font-medium">Home Insurance</div>
                         </button>
-                        <button onclick="showRFQDetails('life')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105">
+                        <button onclick="showRFQDetails('life')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105 luxury-shadow">
                             <div class="text-2xl mb-1">❤️</div>
                             <div class="text-sm font-medium">Life Insurance</div>
                         </button>
-                        <button onclick="showRFQDetails('health')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105">
+                        <button onclick="showRFQDetails('health')" class="bg-white border border-blue-200 rounded-xl p-3 text-center hover:bg-blue-50 transition-all transform hover:scale-105 luxury-shadow">
                             <div class="text-2xl mb-1">🏥</div>
                             <div class="text-sm font-medium">Health Insurance</div>
                         </button>
@@ -398,18 +704,18 @@
                 </div>
 
                 <!-- Generate OTP Section -->
-                <div class="card-shadow bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100 interactive-card">
+                <div class="luxury-shadow bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100 interactive-card">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-800">Generate Access Code</h3>
                             <p class="text-sm text-gray-600">Share your data securely</p>
                         </div>
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center glow-effect">
                             <span class="text-xl">🔑</span>
                         </div>
                     </div>
                     
-                    <div id="otpDisplay" class="hidden bg-white rounded-xl p-4 mb-4 text-center slide-in">
+                    <div id="otpDisplay" class="hidden bg-white rounded-xl p-4 mb-4 text-center slide-in luxury-shadow">
                         <div class="text-3xl font-mono font-bold text-green-600 mb-2" id="otpCode">ABC-123-XYZ</div>
                         <div class="text-sm text-gray-500 mb-3">Valid for <span id="timeRemaining">10:00</span></div>
                         <div class="w-full bg-gray-200 rounded-full h-2">
@@ -424,13 +730,13 @@
 
                 <!-- Quick Actions -->
                 <div class="grid grid-cols-2 gap-4">
-                    <button onclick="showView('agentRequests')" class="card-shadow bg-white rounded-2xl p-4 text-center hover:bg-gray-50 transition-all interactive-card">
+                    <button onclick="showView('agentRequests')" class="luxury-shadow bg-white rounded-2xl p-4 text-center hover:bg-gray-50 transition-all interactive-card">
                         <div class="text-2xl mb-2">💬</div>
                         <div class="text-sm font-medium text-gray-800">Agent Requests</div>
                         <div class="text-xs text-red-600 font-semibold">2 Pending</div>
                     </button>
                     
-                    <button onclick="showView('activeConsents')" class="card-shadow bg-white rounded-2xl p-4 text-center hover:bg-gray-50 transition-all interactive-card">
+                    <button onclick="showView('activeConsents')" class="luxury-shadow bg-white rounded-2xl p-4 text-center hover:bg-gray-50 transition-all interactive-card">
                         <div class="text-2xl mb-2">📋</div>
                         <div class="text-sm font-medium text-gray-800">Active Consents</div>
                         <div class="text-xs text-green-600 font-semibold">5 Active</div>
@@ -438,7 +744,7 @@
                 </div>
 
                 <!-- Recent Activity -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Recent Activity</h3>
                         <button onclick="showView('activityHistory')" class="text-blue-600 text-sm font-medium hover:text-blue-700">View All</button>
@@ -491,7 +797,7 @@
 
             <div class="p-6 space-y-6 pb-24 page-transition">
                 <!-- Personal Information -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Personal Information</h3>
                         <div class="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -528,7 +834,7 @@
                 </div>
 
                 <!-- Employment Information -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Employment Details</h3>
                         <div class="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -560,7 +866,7 @@
                 </div>
 
                 <!-- Vehicle Information -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Vehicle & License</h3>
                         <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -592,7 +898,7 @@
                 </div>
 
                 <!-- Banking Information -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Banking Information</h3>
                         <div class="w-3 h-3 bg-gray-400 rounded-full"></div>
@@ -627,7 +933,7 @@
 
             <div class="p-6 space-y-4 pb-24 page-transition">
                 <!-- Active RFQ -->
-                <div class="card-shadow bg-blue-50 rounded-2xl p-6 border border-blue-200">
+                <div class="luxury-shadow bg-blue-50 rounded-2xl p-6 border border-blue-200">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
@@ -651,7 +957,7 @@
                 </div>
 
                 <!-- Completed RFQ -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white">
@@ -675,7 +981,7 @@
                 </div>
 
                 <!-- Expired RFQ -->
-                <div class="card-shadow bg-gray-50 rounded-2xl p-6">
+                <div class="luxury-shadow bg-gray-50 rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-10 h-10 bg-gray-400 rounded-full flex items-center justify-center text-white">
@@ -718,7 +1024,7 @@
 
             <div class="p-6 space-y-4 pb-24 page-transition">
                 <!-- New Agent Request -->
-                <div class="card-shadow border border-blue-200 rounded-2xl p-6 bg-blue-50">
+                <div class="luxury-shadow border border-blue-200 rounded-2xl p-6 bg-blue-50">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">DI</div>
@@ -730,7 +1036,7 @@
                         <div class="text-xs text-gray-500">2 min ago</div>
                     </div>
                     
-                    <div class="bg-white rounded-lg p-4 mb-4">
+                    <div class="bg-white rounded-lg p-4 mb-4 luxury-shadow">
                         <div class="text-sm text-gray-700 mb-2">
                             "Hi John! I have a competitive car insurance quote for you based on your recent RFQ. Our rates are 15% lower than market average. Can we schedule a quick chat to discuss your coverage options?"
                         </div>
@@ -750,7 +1056,7 @@
                 </div>
 
                 <!-- Another Agent Request -->
-                <div class="card-shadow border border-green-200 rounded-2xl p-6 bg-green-50">
+                <div class="luxury-shadow border border-green-200 rounded-2xl p-6 bg-green-50">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">OM</div>
@@ -762,7 +1068,7 @@
                         <div class="text-xs text-gray-500">5 min ago</div>
                     </div>
                     
-                    <div class="bg-white rounded-lg p-4 mb-4">
+                    <div class="bg-white rounded-lg p-4 mb-4 luxury-shadow">
                         <div class="text-sm text-gray-700 mb-2">
                             "Following up on your life insurance RFQ. I have a comprehensive package that includes funeral cover and investment benefits. Let's discuss how we can secure your family's future."
                         </div>
@@ -782,7 +1088,7 @@
                 </div>
 
                 <!-- Previous Conversations -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Previous Conversations</h3>
                     
                     <div class="space-y-3">
@@ -819,7 +1125,7 @@
 
             <div class="p-6 space-y-6 pb-24 page-transition">
                 <!-- Account Section -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Account</h3>
                     
                     <div class="space-y-3">
@@ -859,7 +1165,7 @@
                 </div>
 
                 <!-- Privacy & Security -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Privacy & Security</h3>
                     
                     <div class="space-y-3">
@@ -902,7 +1208,7 @@
                 </div>
 
                 <!-- Support -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Support</h3>
                     
                     <div class="space-y-3">
@@ -942,7 +1248,7 @@
                 </div>
 
                 <!-- Sign Out -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <button onclick="handleLogout()" class="w-full flex items-center justify-center space-x-3 p-4 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition-all interactive-card">
                         <span class="text-lg">🚪</span>
                         <span class="font-medium">Sign Out</span>
@@ -982,7 +1288,7 @@
             <div class="p-6 space-y-6 pb-24 page-transition">
                 
                 <!-- Performance Overview -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Performance Overview</h3>
                     
                     <div class="grid grid-cols-2 gap-4 mb-4">
@@ -1013,7 +1319,7 @@
                 </div>
 
                 <!-- Agent Performance -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-800">Top Performing Agents</h3>
                         <button onclick="viewAllAgents()" class="text-blue-600 text-sm font-medium hover:text-blue-700">View All</button>
@@ -1065,7 +1371,7 @@
                 </div>
 
                 <!-- RFQ Analytics -->
-                <div class="card-shadow bg-white rounded-2xl p-6">
+                <div class="luxury-shadow bg-white rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">RFQ Breakdown</h3>
                     
                     <div class="space-y-3">
@@ -1107,7 +1413,7 @@
         </div>
 
         <!-- Bottom Navigation -->
-        <div class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-200 shadow-lg">
+        <div class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-200 luxury-shadow">
             <div class="flex justify-around py-3">
                 <button onclick="showView('home')" id="homeTab" class="flex flex-col items-center space-y-1 text-blue-600 transition-all">
                     <span class="text-lg">🏠</span>
@@ -1131,7 +1437,7 @@
 
     <!-- Enhanced Modal System -->
     <div id="modalOverlay" class="hidden fixed inset-0 modal-overlay flex items-center justify-center z-50">
-        <div class="bg-white rounded-2xl p-6 m-4 max-w-sm w-full modal-content">
+        <div class="bg-white rounded-2xl p-6 m-4 max-w-sm w-full modal-content luxury-shadow">
             <div id="modalContent">
                 <!-- Modal content will be inserted here -->
             </div>
@@ -1141,9 +1447,215 @@
     <script>
         let otpTimer;
         let timeLeft = 600; // 10 minutes in seconds
-        let currentView = 'auth';
+        let currentView = 'onboarding';
         let navigationHistory = [];
         let userData = {};
+        let currentSlide = 1;
+        let pinInput = '';
+        let isFirstTimeUser = true;
+        let verificationMethod = null;
+
+        // Onboarding functionality
+        function nextSlide() {
+            if (currentSlide < 5) {
+                document.getElementById(`slide${currentSlide}`).classList.add('hidden');
+                document.getElementById(`dot${currentSlide}`).classList.remove('opacity-100');
+                document.getElementById(`dot${currentSlide}`).classList.add('opacity-30');
+                
+                currentSlide++;
+                
+                document.getElementById(`slide${currentSlide}`).classList.remove('hidden');
+                document.getElementById(`slide${currentSlide}`).classList.add('fade-in');
+                document.getElementById(`dot${currentSlide}`).classList.remove('opacity-30');
+                document.getElementById(`dot${currentSlide}`).classList.add('opacity-100');
+                
+                if (currentSlide === 5) {
+                    document.getElementById('nextBtn').classList.add('hidden');
+                    document.getElementById('getStartedBtn').classList.remove('hidden');
+                }
+            }
+        }
+
+        function skipOnboarding() {
+            completeOnboarding();
+        }
+
+        function completeOnboarding() {
+            // Check if user exists
+            const existingUser = localStorage.getItem('veriapp_user');
+            if (existingUser) {
+                isFirstTimeUser = false;
+                userData = JSON.parse(existingUser);
+                showWelcomeBack();
+            } else {
+                isFirstTimeUser = true;
+                showView('auth');
+            }
+        }
+
+        // Welcome back functionality
+        function showWelcomeBack() {
+            if (userData && userData.firstName) {
+                document.getElementById('welcomeBackName').textContent = `${userData.firstName} ${userData.lastName}`;
+                
+                // Mask sensitive information
+                if (userData.phone) {
+                    const phone = userData.phone;
+                    const masked = phone.substring(0, 7) + '***-**' + phone.slice(-2);
+                    document.getElementById('maskedPhone').textContent = masked;
+                }
+                
+                if (userData.email) {
+                    const email = userData.email;
+                    const [name, domain] = email.split('@');
+                    const maskedName = name.charAt(0) + '***';
+                    document.getElementById('maskedEmail').textContent = `${maskedName}@${domain}`;
+                }
+                
+                // Update stats (simulate)
+                document.getElementById('userActiveConsents').textContent = Math.floor(Math.random() * 10) + 3;
+                document.getElementById('userTotalRFQs').textContent = Math.floor(Math.random() * 20) + 8;
+                document.getElementById('userSavings').textContent = `R${(Math.random() * 5 + 1).toFixed(1)}K`;
+            }
+            
+            showView('welcomeBack');
+        }
+
+        // Verification methods
+        function verifyBiometric() {
+            showNotification('👆 Biometric verification initiated...', 'info');
+            
+            // Simulate biometric verification
+            setTimeout(() => {
+                showNotification('✅ Biometric verification successful!', 'success');
+                setTimeout(() => {
+                    updateVaultDisplay();
+                    showView('home');
+                }, 1000);
+            }, 2000);
+        }
+
+        function showPINVerification() {
+            showView('pinVerification');
+        }
+
+        function sendSMSVerification() {
+            verificationMethod = 'sms';
+            showNotification('📱 SMS verification code sent!', 'success');
+            
+            // Simulate SMS verification
+            setTimeout(() => {
+                showModal(
+                    { text: 'Enter SMS Code', icon: '📱' },
+                    'Enter the 6-digit code sent to your phone.',
+                    [
+                        {
+                            text: 'Verify',
+                            action: 'verifySMSCode(); closeModal();',
+                            class: 'w-full bg-green-600 hover:bg-green-700 text-white',
+                            primary: true
+                        }
+                    ]
+                );
+            }, 1500);
+        }
+
+        function sendEmailVerification() {
+            verificationMethod = 'email';
+            showNotification('📧 Email verification sent!', 'success');
+            
+            // Simulate email verification
+            setTimeout(() => {
+                showModal(
+                    { text: 'Check Your Email', icon: '📧' },
+                    'Click the verification link in your email to continue.',
+                    [
+                        {
+                            text: 'I\'ve Verified',
+                            action: 'verifyEmailCode(); closeModal();',
+                            class: 'w-full bg-blue-600 hover:bg-blue-700 text-white',
+                            primary: true
+                        }
+                    ]
+                );
+            }, 1500);
+        }
+
+        function verifySMSCode() {
+            showNotification('✅ SMS verification successful!', 'success');
+            setTimeout(() => {
+                updateVaultDisplay();
+                showView('home');
+            }, 1000);
+        }
+
+        function verifyEmailCode() {
+            showNotification('✅ Email verification successful!', 'success');
+            setTimeout(() => {
+                updateVaultDisplay();
+                showView('home');
+            }, 1000);
+        }
+
+        function showPasswordLogin() {
+            showView('auth');
+        }
+
+        function showNewUserFlow() {
+            isFirstTimeUser = true;
+            localStorage.removeItem('veriapp_user');
+            userData = {};
+            showView('auth');
+        }
+
+        // PIN verification functionality
+        function addPINDigit(digit) {
+            if (pinInput.length < 6) {
+                pinInput += digit;
+                updatePINDisplay();
+                
+                if (pinInput.length === 6) {
+                    verifyPIN();
+                }
+            }
+        }
+
+        function clearPIN() {
+            if (pinInput.length > 0) {
+                pinInput = pinInput.slice(0, -1);
+                updatePINDisplay();
+            }
+        }
+
+        function updatePINDisplay() {
+            for (let i = 1; i <= 6; i++) {
+                const dot = document.getElementById(`pin${i}`);
+                if (i <= pinInput.length) {
+                    dot.classList.add('pin-dot-active');
+                } else {
+                    dot.classList.remove('pin-dot-active');
+                }
+            }
+        }
+
+        function verifyPIN() {
+            showNotification('🔢 Verifying PIN...', 'info');
+            
+            // Simulate PIN verification (in real app, this would be secure)
+            setTimeout(() => {
+                if (pinInput === '123456' || pinInput.length === 6) { // Accept any 6-digit PIN for demo
+                    showNotification('✅ PIN verification successful!', 'success');
+                    setTimeout(() => {
+                        updateVaultDisplay();
+                        showView('home');
+                    }, 1000);
+                } else {
+                    showNotification('❌ Invalid PIN. Please try again.', 'error');
+                    pinInput = '';
+                    updatePINDisplay();
+                }
+            }, 1500);
+        }
 
         // Enhanced view management
         function showView(viewName) {
@@ -1170,7 +1682,7 @@
                 // Remove animation class after animation completes
                 setTimeout(() => {
                     targetView.classList.remove('page-transition');
-                }, 400);
+                }, 500);
             }
         }
 
@@ -1206,7 +1718,7 @@
             
             modalContent.innerHTML = `
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 glow-effect">
                         <span class="text-2xl">${title.icon || '💬'}</span>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">${title.text}</h3>
@@ -1345,7 +1857,7 @@
             
             // Show quotes in a modal
             const quotesHTML = quotes.map(quote => `
-                <div class="border border-${quote.color}-200 rounded-lg p-3 bg-${quote.color}-50 mb-3">
+                <div class="border border-${quote.color}-200 rounded-lg p-3 bg-${quote.color}-50 mb-3 luxury-shadow">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center space-x-2">
                             <div class="w-6 h-6 bg-${quote.color}-600 rounded-full flex items-center justify-center text-white text-xs font-bold">${quote.logo}</div>
@@ -1354,7 +1866,7 @@
                         </div>
                         <div class="text-lg font-bold text-${quote.color}-600">${quote.price}/mo</div>
                     </div>
-                    <button onclick="acceptQuote('${quote.company}'); closeModal();" class="w-full bg-${quote.color}-600 hover:bg-${quote.color}-700 text-white text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                    <button onclick="acceptQuote('${quote.company}'); closeModal();" class="w-full bg-${quote.color}-600 hover:bg-${quote.color}-700 text-white text-xs font-medium py-2 px-3 rounded-lg transition-all btn-primary">
                         Accept Quote
                     </button>
                 </div>
@@ -1507,40 +2019,10 @@
             showNotification('🔄 RFQ resent to 12 insurers!', 'success');
         }
 
-        function showSettings() {
-            showModal(
-                { text: 'Account Settings', icon: '⚙️' },
-                'Manage your VeriApp Vault account and preferences.',
-                [
-                    {
-                        text: 'Edit Profile',
-                        action: 'editProfile(); closeModal();',
-                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white mb-2',
-                        primary: true
-                    },
-                    {
-                        text: 'Privacy Settings',
-                        action: 'showPrivacySettings(); closeModal();',
-                        class: 'w-full bg-gray-200 hover:bg-gray-300 text-gray-700 mb-2'
-                    },
-                    {
-                        text: 'Sign Out',
-                        action: 'handleLogout(); closeModal();',
-                        class: 'w-full bg-red-600 hover:bg-red-700 text-white mb-2'
-                    },
-                    {
-                        text: 'Cancel',
-                        action: 'closeModal()',
-                        class: 'w-full bg-gray-200 hover:bg-gray-300 text-gray-700'
-                    }
-                ]
-            );
-        }
-
         function handleLogout() {
             showModal(
                 { text: 'Sign Out', icon: '🚪' },
-                'Are you sure you want to sign out? You\'ll need to sign in again to access your vault.',
+                'Are you sure you want to sign out? You\'ll need to verify your identity again to access your vault.',
                 [
                     {
                         text: 'Cancel',
@@ -1557,17 +2039,9 @@
         }
 
         function confirmLogout() {
-            // Clear user data
-            localStorage.removeItem('veriapp_user');
-            userData = {};
-            
-            // Reset forms
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginPassword').value = '';
-            
-            // Show auth view
-            showView('auth');
-            showNotification('👋 You have been signed out successfully.', 'success');
+            // Don't clear user data, just return to welcome screen
+            showWelcomeBack();
+            showNotification('👋 You have been signed out. Your data remains secure.', 'success');
         }
 
         function editProfile() {
@@ -1621,90 +2095,7 @@
             showNotification('📋 Consent history viewer coming soon!', 'info');
         }
 
-        function showHelp() {
-            showModal(
-                { text: 'Help & FAQ', icon: '❓' },
-                'Get answers to frequently asked questions about VeriApp Vault.',
-                [
-                    {
-                        text: 'View FAQ',
-                        action: 'openFAQ(); closeModal();',
-                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white',
-                        primary: true
-                    }
-                ]
-            );
-        }
-
-        function openFAQ() {
-            showNotification('❓ FAQ section coming soon!', 'info');
-        }
-
-        function contactSupport() {
-            showModal(
-                { text: 'Contact Support', icon: '💬' },
-                'Get help from our support team. We typically respond within 2 hours.',
-                [
-                    {
-                        text: 'Start Chat',
-                        action: 'startSupportChat(); closeModal();',
-                        class: 'w-full bg-green-600 hover:bg-green-700 text-white',
-                        primary: true
-                    }
-                ]
-            );
-        }
-
-        function startSupportChat() {
-            showNotification('💬 Support chat coming soon!', 'info');
-        }
-
-        function showAbout() {
-            showModal(
-                { text: 'About VeriApp Vault', icon: 'ℹ️' },
-                'VeriApp Vault v2.1.0\n\nSecure insurance platform that puts you in control of your data. Built with privacy-first principles and military-grade encryption.\n\n© 2024 VeriApp Technologies',
-                [
-                    {
-                        text: 'OK',
-                        action: 'closeModal()',
-                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white',
-                        primary: true
-                    }
-                ]
-            );
-        }
-
-        function switchCompany() {
-            showNotification('🔄 Company switcher coming soon!', 'info');
-        }
-
-        function viewAllAgents() {
-            showNotification('👥 Agent directory coming soon!', 'info');
-        }
-
-        // Enhanced notification system
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 px-4 py-3 rounded-lg text-white text-sm font-medium z-50 slide-in shadow-lg ${
-                type === 'success' ? 'bg-green-600' : 
-                type === 'warning' ? 'bg-yellow-600' : 
-                type === 'error' ? 'bg-red-600' :
-                'bg-blue-600'
-            }`;
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transform = 'translate(-50%, -20px)';
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }, 3000);
-        }
-
-        // Authentication Functions
+        // Authentication functionality
         function showLoginForm() {
             document.getElementById('loginForm').classList.remove('hidden');
             document.getElementById('registerForm').classList.add('hidden');
@@ -1713,7 +2104,9 @@
         function showRegisterForm() {
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('registerForm').classList.remove('hidden');
-            showRegisterStep1();
+            document.getElementById('registerStep1').classList.remove('hidden');
+            document.getElementById('registerStep2').classList.add('hidden');
+            document.getElementById('registerStep3').classList.add('hidden');
         }
 
         function showRegisterStep1() {
@@ -1726,20 +2119,13 @@
             // Validate step 1
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
-            const idNumber = document.getElementById('idNumber').value;
             const email = document.getElementById('registerEmail').value;
-            const phone = document.getElementById('phoneNumber').value;
-
-            if (!firstName || !lastName || !idNumber || !email || !phone) {
+            
+            if (!firstName || !lastName || !email) {
                 showNotification('❌ Please fill in all required fields', 'error');
                 return;
             }
-
-            if (idNumber.length !== 13) {
-                showNotification('❌ ID number must be 13 digits', 'error');
-                return;
-            }
-
+            
             document.getElementById('registerStep1').classList.add('hidden');
             document.getElementById('registerStep2').classList.remove('hidden');
             document.getElementById('registerStep3').classList.add('hidden');
@@ -1747,18 +2133,14 @@
 
         function showRegisterStep3() {
             // Validate step 2
-            const streetAddress = document.getElementById('streetAddress').value;
+            const address = document.getElementById('streetAddress').value;
             const city = document.getElementById('city').value;
-            const postalCode = document.getElementById('postalCode').value;
-            const companyName = document.getElementById('companyName').value;
-            const jobTitle = document.getElementById('jobTitle').value;
-            const salary = document.getElementById('monthlySalary').value;
-
-            if (!streetAddress || !city || !postalCode || !companyName || !jobTitle || !salary) {
+            
+            if (!address || !city) {
                 showNotification('❌ Please fill in all required fields', 'error');
                 return;
             }
-
+            
             document.getElementById('registerStep1').classList.add('hidden');
             document.getElementById('registerStep2').classList.add('hidden');
             document.getElementById('registerStep3').classList.remove('hidden');
@@ -1767,65 +2149,61 @@
         function handleLogin() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-
+            
             if (!email || !password) {
-                showNotification('❌ Please enter both email and password', 'error');
+                showNotification('❌ Please enter your email and password', 'error');
                 return;
             }
-
-            // Simulate login process
-            showNotification('🔄 Signing you in...', 'info');
             
+            showNotification('🔐 Signing you in...', 'info');
+            
+            // Simulate login
             setTimeout(() => {
-                // Check if user exists (simulate)
+                // Check if user exists
                 const existingUser = localStorage.getItem('veriapp_user');
                 if (existingUser) {
                     userData = JSON.parse(existingUser);
                     updateVaultDisplay();
+                    showNotification('✅ Welcome back!', 'success');
+                    showView('home');
+                } else {
+                    showNotification('❌ Invalid credentials. Please try again.', 'error');
                 }
-                
-                showNotification('✅ Welcome back! Login successful.', 'success');
-                showView('home');
             }, 1500);
         }
 
         function handleRegister() {
-            // Validate step 3
-            const vehicleMake = document.getElementById('vehicleMake').value;
-            const vehicleModel = document.getElementById('vehicleModel').value;
-            const vehicleYear = document.getElementById('vehicleYear').value;
-            const licensePlate = document.getElementById('licensePlate').value;
-            const licenseNumber = document.getElementById('licenseNumber').value;
+            // Validate all fields
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             const agreeTerms = document.getElementById('agreeTerms').checked;
-
-            if (!vehicleMake || !vehicleModel || !vehicleYear || !licensePlate || !licenseNumber || !password || !confirmPassword) {
+            
+            if (!firstName || !lastName || !email || !password || !confirmPassword) {
                 showNotification('❌ Please fill in all required fields', 'error');
                 return;
             }
-
+            
             if (password !== confirmPassword) {
                 showNotification('❌ Passwords do not match', 'error');
                 return;
             }
-
-            if (password.length < 6) {
-                showNotification('❌ Password must be at least 6 characters', 'error');
-                return;
-            }
-
+            
             if (!agreeTerms) {
-                showNotification('❌ Please agree to the Terms of Service', 'error');
+                showNotification('❌ Please agree to the terms and conditions', 'error');
                 return;
             }
-
+            
+            showNotification('🔐 Creating your account...', 'info');
+            
             // Collect all user data
             userData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
+                firstName: firstName,
+                lastName: lastName,
                 idNumber: document.getElementById('idNumber').value,
-                email: document.getElementById('registerEmail').value,
+                email: email,
                 phone: document.getElementById('phoneNumber').value,
                 streetAddress: document.getElementById('streetAddress').value,
                 city: document.getElementById('city').value,
@@ -1833,82 +2211,280 @@
                 companyName: document.getElementById('companyName').value,
                 jobTitle: document.getElementById('jobTitle').value,
                 monthlySalary: document.getElementById('monthlySalary').value,
-                vehicleMake: vehicleMake,
-                vehicleModel: vehicleModel,
-                vehicleYear: vehicleYear,
-                licensePlate: licensePlate,
-                licenseNumber: licenseNumber,
+                vehicleMake: document.getElementById('vehicleMake').value,
+                vehicleModel: document.getElementById('vehicleModel').value,
+                vehicleYear: document.getElementById('vehicleYear').value,
+                licensePlate: document.getElementById('licensePlate').value,
+                licenseNumber: document.getElementById('licenseNumber').value,
                 registrationDate: new Date().toISOString()
             };
-
-            // Save to localStorage (simulate database)
+            
+            // Save to localStorage
             localStorage.setItem('veriapp_user', JSON.stringify(userData));
-
-            // Show success and redirect
-            showNotification('🔄 Creating your secure account...', 'info');
             
             setTimeout(() => {
-                showNotification('✅ Account created successfully! Welcome to VeriApp Vault.', 'success');
+                showNotification('✅ Account created successfully!', 'success');
                 updateVaultDisplay();
-                showView('home');
+                setTimeout(() => {
+                    showView('home');
+                }, 1000);
             }, 2000);
         }
 
         function updateVaultDisplay() {
-            if (!userData || Object.keys(userData).length === 0) return;
-
-            // Update personal information
-            document.getElementById('displayFullName').textContent = `${userData.firstName} ${userData.lastName}`;
-            document.getElementById('displayIdNumber').textContent = userData.idNumber;
-            document.getElementById('displayEmail').textContent = userData.email;
-            document.getElementById('displayPhone').textContent = userData.phone;
-            document.getElementById('displayAddress').textContent = `${userData.streetAddress}, ${userData.city}, ${userData.postalCode}`;
-
-            // Update employment information
-            document.getElementById('displayCompany').textContent = userData.companyName;
-            document.getElementById('displayJobTitle').textContent = userData.jobTitle;
-            document.getElementById('displaySalary').textContent = `R${parseInt(userData.monthlySalary).toLocaleString()}`;
-
-            // Update vehicle information
-            document.getElementById('displayVehicle').textContent = `${userData.vehicleYear} ${userData.vehicleMake} ${userData.vehicleModel}`;
-            document.getElementById('displayLicensePlate').textContent = userData.licensePlate;
-            document.getElementById('displayLicenseNumber').textContent = userData.licenseNumber;
+            if (userData) {
+                document.getElementById('displayFullName').textContent = `${userData.firstName} ${userData.lastName}`;
+                document.getElementById('displayIdNumber').textContent = userData.idNumber || 'Not provided';
+                document.getElementById('displayEmail').textContent = userData.email || 'Not provided';
+                document.getElementById('displayPhone').textContent = userData.phone || 'Not provided';
+                document.getElementById('displayAddress').textContent = `${userData.streetAddress || ''}, ${userData.city || ''}, ${userData.postalCode || ''}`.replace(/^,\s*|,\s*$/g, '') || 'Not provided';
+                document.getElementById('displayCompany').textContent = userData.companyName || 'Not provided';
+                document.getElementById('displayJobTitle').textContent = userData.jobTitle || 'Not provided';
+                document.getElementById('displaySalary').textContent = userData.monthlySalary ? `R${parseInt(userData.monthlySalary).toLocaleString()}` : 'Not provided';
+                document.getElementById('displayVehicle').textContent = userData.vehicleYear && userData.vehicleMake && userData.vehicleModel ? `${userData.vehicleYear} ${userData.vehicleMake} ${userData.vehicleModel}` : 'Not provided';
+                document.getElementById('displayLicensePlate').textContent = userData.licensePlate || 'Not provided';
+                document.getElementById('displayLicenseNumber').textContent = userData.licenseNumber || 'Not provided';
+            }
         }
 
-        // Initialize app
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium shadow-lg transition-all duration-300`;
+            
+            // Set color based on type
+            switch(type) {
+                case 'success':
+                    notification.className += ' bg-green-500';
+                    break;
+                case 'error':
+                    notification.className += ' bg-red-500';
+                    break;
+                case 'warning':
+                    notification.className += ' bg-yellow-500';
+                    break;
+                default:
+                    notification.className += ' bg-blue-500';
+            }
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+                notification.style.opacity = '1';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(-100px)';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Additional functionality implementations
+        function viewPolicyDetails(policyId) {
+            showModal(
+                { text: 'Policy Details', icon: '📋' },
+                `Policy ID: ${policyId}\nProvider: Discovery Insure\nPremium: R850/month\nCoverage: Comprehensive\nStatus: Active\n\nNext payment due: 15 Dec 2024`,
+                [
+                    {
+                        text: 'Download PDF',
+                        action: 'downloadPolicy(); closeModal();',
+                        class: 'flex-1 bg-blue-600 hover:bg-blue-700 text-white',
+                        primary: true
+                    },
+                    {
+                        text: 'Close',
+                        action: 'closeModal()',
+                        class: 'flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700'
+                    }
+                ]
+            );
+        }
+
+        function downloadPolicy() {
+            showNotification('📄 Policy document downloaded!', 'success');
+        }
+
+        function viewChatHistory(chatId) {
+            showModal(
+                { text: 'Chat History', icon: '💬' },
+                'Chat with Momentum Insurance Agent\nDuration: 15 minutes\nOutcome: Policy purchased\nSavings achieved: R180/month\n\nAgent rating: ⭐⭐⭐⭐⭐',
+                [
+                    {
+                        text: 'View Full Chat',
+                        action: 'openFullChat(); closeModal();',
+                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white',
+                        primary: true
+                    }
+                ]
+            );
+        }
+
+        function openFullChat() {
+            showNotification('💬 Full chat history opened!', 'info');
+        }
+
+        function viewAllAgents() {
+            showNotification('👥 Loading all agents...', 'info');
+            setTimeout(() => {
+                showModal(
+                    { text: 'All Agents', icon: '👥' },
+                    'Top 10 performing agents this month:\n\n1. Sarah M. - Discovery (47 conversions)\n2. Thabo K. - Old Mutual (39 conversions)\n3. Lisa P. - Momentum (35 conversions)\n4. John D. - Santam (32 conversions)\n5. Mary S. - Hollard (28 conversions)',
+                    [
+                        {
+                            text: 'Close',
+                            action: 'closeModal()',
+                            class: 'w-full bg-blue-600 hover:bg-blue-700 text-white',
+                            primary: true
+                        }
+                    ]
+                );
+            }, 1000);
+        }
+
+        function switchCompany() {
+            showModal(
+                { text: 'Switch Company View', icon: '🏢' },
+                'Select insurance company to view analytics:',
+                [
+                    {
+                        text: 'Discovery Insure',
+                        action: 'switchToCompany("discovery"); closeModal();',
+                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white mb-2',
+                        primary: true
+                    },
+                    {
+                        text: 'Old Mutual',
+                        action: 'switchToCompany("oldmutual"); closeModal();',
+                        class: 'w-full bg-green-600 hover:bg-green-700 text-white mb-2'
+                    },
+                    {
+                        text: 'Momentum',
+                        action: 'switchToCompany("momentum"); closeModal();',
+                        class: 'w-full bg-purple-600 hover:bg-purple-700 text-white'
+                    }
+                ]
+            );
+        }
+
+        function switchToCompany(company) {
+            const companies = {
+                'discovery': 'Discovery Insure',
+                'oldmutual': 'Old Mutual',
+                'momentum': 'Momentum Insurance'
+            };
+            showNotification(`🏢 Switched to ${companies[company]} analytics`, 'success');
+        }
+
+        function showHelp() {
+            showModal(
+                { text: 'Help & FAQ', icon: '❓' },
+                'Frequently Asked Questions:\n\n• How secure is my data?\nYour data is encrypted with military-grade security.\n\n• How do RFQs work?\nWe send your request to verified insurers who respond with real quotes.\n\n• Can I revoke access?\nYes, you can revoke any consent instantly.\n\n• Is there a fee?\nVeriApp Vault is completely free for consumers.',
+                [
+                    {
+                        text: 'Contact Support',
+                        action: 'contactSupport(); closeModal();',
+                        class: 'flex-1 bg-blue-600 hover:bg-blue-700 text-white',
+                        primary: true
+                    },
+                    {
+                        text: 'Close',
+                        action: 'closeModal()',
+                        class: 'flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700'
+                    }
+                ]
+            );
+        }
+
+        function contactSupport() {
+            showModal(
+                { text: 'Contact Support', icon: '💬' },
+                'How would you like to contact our support team?',
+                [
+                    {
+                        text: 'Live Chat',
+                        action: 'startLiveChat(); closeModal();',
+                        class: 'w-full bg-green-600 hover:bg-green-700 text-white mb-2',
+                        primary: true
+                    },
+                    {
+                        text: 'Email Support',
+                        action: 'emailSupport(); closeModal();',
+                        class: 'w-full bg-blue-600 hover:bg-blue-700 text-white mb-2'
+                    },
+                    {
+                        text: 'Call Us',
+                        action: 'callSupport(); closeModal();',
+                        class: 'w-full bg-purple-600 hover:bg-purple-700 text-white'
+                    }
+                ]
+            );
+        }
+
+        function startLiveChat() {
+            showNotification('💬 Connecting you to live support...', 'info');
+        }
+
+        function emailSupport() {
+            showNotification('📧 Opening email to support@veriapp.co.za', 'info');
+        }
+
+        function callSupport() {
+            showNotification('📞 Support: 0800-VERIAPP (0800-837-4277)', 'info');
+        }
+
+        function showAbout() {
+            showModal(
+                { text: 'About VeriApp Vault', icon: 'ℹ️' },
+                'VeriApp Vault v2.1.0\n\nYour personal insurance data vault that puts you in complete control. Built with military-grade security and designed for the South African insurance market.\n\n© 2024 VeriApp Technologies\nLicensed by the Financial Sector Conduct Authority',
+                [
+                    {
+                        text: 'Visit Website',
+                        action: 'visitWebsite(); closeModal();',
+                        class: 'flex-1 bg-blue-600 hover:bg-blue-700 text-white',
+                        primary: true
+                    },
+                    {
+                        text: 'Close',
+                        action: 'closeModal()',
+                        class: 'flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700'
+                    }
+                ]
+            );
+        }
+
+        function visitWebsite() {
+            showNotification('🌐 Opening VeriApp website...', 'info');
+        }
+
+        // Initialize app on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is already logged in
+            // Check if user exists and show appropriate view
             const existingUser = localStorage.getItem('veriapp_user');
             if (existingUser) {
                 userData = JSON.parse(existingUser);
-                updateVaultDisplay();
-                showView('home');
-                setTimeout(() => {
-                    showNotification('🔐 Welcome back to VeriApp Vault!', 'success');
-                }, 1000);
+                isFirstTimeUser = false;
+                // Start with onboarding, but it will redirect to welcome back
+                showView('onboarding');
             } else {
-                // Show auth view for new users
-                showView('auth');
-                setTimeout(() => {
-                    showNotification('👋 Welcome! Please sign in or create an account.', 'info');
-                }, 1000);
+                isFirstTimeUser = true;
+                showView('onboarding');
             }
-            
-            // Initialize current view
-            updateTabStates(currentView);
         });
 
-        // Handle back button functionality
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                if (!document.getElementById('modalOverlay').classList.contains('hidden')) {
-                    closeModal();
-                } else if (navigationHistory.length > 0) {
-                    const previousView = navigationHistory.pop();
-                    showView(previousView);
-                }
-            }
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97671b54260373d6',t:'MTc1NjQxODY5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+        function
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977f4a80c414b910',t:'MTc1NjY3MjI4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
